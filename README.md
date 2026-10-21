@@ -21,4 +21,4 @@ As for what I enjoyed about the project, I could say it was mostly the programmi
 1 Buzzer
 
 ## Software
-I used the Arduino UNO IDE to program the control loop in C++.
+I used the Arduino IDE to program the control loop in C++.
