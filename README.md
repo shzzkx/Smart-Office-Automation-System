@@ -22,6 +22,3 @@ As for what I enjoyed about the project, I could say it was mostly the programmi
 
 ## Software
 I used the Arduino UNO IDE to program the control loop in C++.
-6 LEDs – 2 yellow, 2 green, and 2 blue
-1 Laser-transmit Module
-1 Buzzer
