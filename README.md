@@ -1,0 +1,27 @@
+# Introduction and Objectives
+The smart home automation circuit system that I designed functions like an office room with an alarm system. The first component to this circuit are the lighting options, which are triggered by the keypad sensor. There are three different lighting options (yellow, green, and blue) corresponding to numbers 1, 2, 3 respectively on the keypad; press any of these numbers and the “room” will light up. The color that was chosen will also be displayed on the serial monitor. If you want to turn the lights off, press 0. (If any other key is pressed, the serial monitor will inform the user that they have entered an invalid key.) The next two components of my circuit relate to the alarm system. The sound sensor is used to determine whether or not an intruder is near. If the environment’s volume surpasses a certain analog value, the laser will turn on, pointing in the direction the sound was heard so as to illuminate the intruder. The serial monitor will also corroborate that an intruder was heard. With the laser indicating that an intruder is nearby, one can press the button sensor to activate the alarm; simply press once and the buzzer will go off immediately, displaying an appropriate message on the serial monitor and only stopping if the button is pressed again. If the intruder, hearing the buzzer go off, decides to leave, the sound sensor will detect the reduction in volume and the laser will turn off. The serial monitor will state that the intruder has left; and the person is now free to either turn the buzzer off or keep it going should they fear another intrusion.
+
+# Research and Design Considerations
+As implicitly stated in the section above, each of the three sensors part of my circuit is connected to a different output. The keypad sensor determines the output of the LEDs; the sound sensor, the laser; and the button sensor, the buzzer. Each row and column part of the keypad sensor is stored in an array and connected to the pins binding the keypad to the circuit; when a certain key is pressed, it triggers the Keypad class to determine which of the rows and columns this key belongs to, and by doing so, determine which key was pressed. The buzzer sensor is connected only to a single pin as well as the power source and ground. How it works is pretty self-explanatory – when the buzzer is pressed, its digital reading will be high, with its default digital reading being low. The sound sensor, on the other hand, is (in addition to the power source and ground) connected to two pins – one digital and one analog. This enables it to take both a digital and analog reading of the environment’s volume. In my circuit, I made use only of the sound sensor module’s analog reading feature, as its digital reading was far too sensitive and almost always read high.
+
+# Debugging
+As is most commonly the case, I faced many challenges in the making of my smart home automation system. The first has to do with the sensors I planned on using. I originally wanted to use the PIR motion sensor to detect if an intruder was nearby, but as I discovered after wiring and coding it, the motion sensor always produced faulty values – it seemed to detect movement even when no movement was present. As such, I had to make a switch from the motion sensor to the sound sensor in order for my circuit’s alarm system to detect intruders. I also had to switch out the output device the motion sensor was supposed to be connected to, which was the Servo motor. The Servo did not move even though my code was accurate (which I know for certain as this code worked on another Servo motor in the classroom.) I had to make the decision not to use up more time trying to figure out why it was buggy and decided to use the laser module instead. Other challenge I faced dealt with false alarms from the sound sensor. I noticed that the laser was always being triggered even if the room was relatively quiet. I logged the sound sensor's analog readings over the serial monitor to figure out what was going on, and noticed that its real range was far higher than the threshold I had in the control loop. So, I determined its real output range in quiet and noisy conditions (when the room was silent vs. when I clapped in front of it) and updated the control loop with those sound levels. After that, my circuit worked as expected!
+As for what I enjoyed about the project, I could say it was mostly the programming. I love the challenge that programming provides and especially love coding real-world devices, such as this circuit system. Another thing I loved was getting to play around with the laser module, since I hadn’t used it prior to building this project. In the future, I could improve upon this project by including different ways to detect the presence of an intruder – such as combining both the ultrasonic and sound sensor to detect both movement and changes in volume – as well as implementing more light options, such as a gradient between colors (at least as much of a gradient as possible with simple LEDs.)
+
+# List of Materials Used
+1 Arduino Uno R4 WiFi Board
+1 Solderless Breadboard
+1 USB 3.1 Cable
+29 Wires
+1 Keypad Sensor
+1 Sound Sensor Module
+1 Button Sensor
+6 LEDs – 2 yellow, 2 green, and 2 blue
+1 Laser-transmit Module
+1 Buzzer
+
+## Software
+I used the Arduino UNO IDE to program the control loop in C++.
+6 LEDs – 2 yellow, 2 green, and 2 blue
+1 Laser-transmit Module
+1 Buzzer
