@@ -7,16 +7,16 @@ I originally wanted to use the Servo motor to signal intrusion detection, but af
 Another challenge I faced dealt with false alarms from the sound sensor. I noticed that the laser was always being triggered even if the room was relatively quiet. I logged the sound sensor's analog readings over the serial monitor to figure out what was going on, and noticed that its real range was far higher than the threshold I had in the control loop. So, I determined its real output range in quiet and noisy conditions (when the room was silent vs. when I clapped in front of it) and updated the control loop with those sound levels. After that, my circuit worked as expected!
 
 # List of Materials Used
-1 Arduino Uno R4 WiFi Board
-1 Solderless Breadboard
-1 USB 3.1 Cable
-29 Wires
-1 Keypad Sensor
-1 Sound Sensor Module
-1 Button Sensor
-6 LEDs – 2 yellow, 2 green, and 2 blue
-1 Laser-transmit Module
-1 Buzzer
+* 1 Arduino Uno R4 WiFi Board
+* 1 Solderless Breadboard
+* 1 USB 3.1 Cable
+* 29 Wires
+* 1 Keypad Sensor
+* 1 Sound Sensor Module
+* 1 Button Sensor
+* 6 LEDs – 2 yellow, 2 green, and 2 blue
+* 1 Laser-transmit Module
+* 1 Buzzer
 
 ## Software
 I used the Arduino IDE to program the control loop in C++.
